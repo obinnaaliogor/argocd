@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: obinnaaliogor/spring-boot-mongo:9 #to access path to the app use /webapp
+        image: obinnaaliogor/hello-world #to access path to the app use /webapp
         ports:
         - containerPort: 8080
 ---
