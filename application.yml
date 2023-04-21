@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/obinnaaliogor/argocd.git #add your repo url here, the repo argocd will monitor
+    targetRevision: HEAD
+    path: deploymentDir #Path or directory where your deployment files are located. That argocd will monitor
+  destination:
+    server: https://kubernetes.default.svc  #default k8s service
+    namespace: myapp #The name of the app that will be deployed by argocd
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true #argurment for argocd to create a namespace in our cluster
+
+    automated:
+      selfHeal: true  #argocd should heal or try to restart pods that isnt healthy
+      prune: true #delete any inconsistency in the cluster that is not in the present in the repo.. so the repo is the only source of truth.
