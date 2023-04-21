@@ -101,12 +101,18 @@ metadata:
 name: argocd-repo
 
 namespace: argocd
+
 labels:
 argocd.argoproj.io/secret-type: repository #targeting repository..
+
 stringData:
+
 type: git
+
 url: https://github.com/yourrepo.git  #repo url of your github
+
 password: <your-token>
+  
 username: yourusername
 
 ONE AMONGST THE GOOD THING ARGOCD PROVIDES IS THAT THE APPLICATION RESOURCE GIVES YOU THE PRIVILEGE TO SET THE HEAD WHICH THE MAIN BRANCH FOR DEPLOYMENT.
