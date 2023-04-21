@@ -111,7 +111,7 @@ type: git
 
 url: https://github.com/yourrepo.git  #repo url of your github
 
-password: <your-token>
+password:  your-token
   
 username: yourusername
 
