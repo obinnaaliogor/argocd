@@ -90,16 +90,18 @@ syncOptions:
 
 secret.yaml
 ============
+NOTE IF YOUR REPOSITORY IS NOT A PUBLIC REPO, THEN YOU HAVE TO AUTHORIZE ARGOCD
+TO DEPLOY THE APPLICATION USING THE FOLLOWING MANIFEST FILE DEPLOYED IN YOUR K8S CLUSTER.
+
 apiVersion: v1
 kind: Secret
 metadata:
 name: argocd-repo
 namespace: argocd
 labels:
-argocd.argoproj.io/secret-type: repository
+argocd.argoproj.io/secret-type: repository #targeting repository..
 stringData:
 type: git
-url: https://github.com/yourrepo.git
+url: https://github.com/yourrepo.git  #repo url of your github
 password: <your-token>
 username: yourusername
- 
